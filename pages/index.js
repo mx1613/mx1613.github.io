@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-
 import * as THREE from 'three';
-import Box from '@mui/material/Box';
 
 import { Layout } from '../components/layouts/layout'
 import { FBXLoader } from '/utils/three/jsm/loaders/FBXLoader.js'
@@ -18,14 +16,14 @@ export default function Home() {
     let mixer;
     init();
     animate();
-    // --------------------
+
     function init() {
       character_container = document.getElementById('character_div');
       let container_height = character_container.clientHeight;
       let container_width = character_container.clientWidth;
 
       camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-      camera.position.set(0, 100, 400);
+      camera.position.set(-1800, 200, 400);
 
       scene = new THREE.Scene();
 
@@ -44,9 +42,8 @@ export default function Home() {
 
 
       const loader = new FBXLoader();
-      loader.load('/assets/three_models/Twerking_Rick.fbx', function (object) {
+      loader.load('/assets/three_models/Falling_Morty.fbx', function (object) {
         mixer = new THREE.AnimationMixer(object);
-        console.log(object.animations[0])
         const action = mixer.clipAction(object.animations[0]);
         action.play();
         object.traverse(function (child) {
@@ -98,7 +95,7 @@ export default function Home() {
   return (
     <Layout>
       <main className="relative h-screen w-screen bg-slate-900">
-        <div id="character_div" className="absolute h-1/2 aspect-square bottom-14 right-0 rounded-full" />
+        <div id="character_div" className="absolute w-1/6 h-1/2 bottom-14 left-0 rounded-full" />
         <div
           id="personal_info"
           className="absolute h-10 aspect-square content-center rounded-xl left-4 top-4"
@@ -106,8 +103,9 @@ export default function Home() {
           onMouseLeave={() => setIsShown(false)}
         >
           {isShown && (
-            <div className="absolute h-fit aspect-square bg-slate-800 content-center rounded-xl left-10 top-10">
-              Former roboticist, web developer and data scientist wannabe. Rick and Morty fan.
+            <div className="absolute w-72 bg-slate-800 text-left rounded-xl left-10 top-10 py-4 px-4">
+              Roboticist, web developer and data scientist wannabe. <br />
+              Rick and Morty fan. <br />
             </div>
           )}
           <Image src="/icons/info.svg" layout="fill" />

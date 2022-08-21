@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
-import Stats from './jsm/libs/stats.module.js';
-import { OrbitControls } from './jsm/controls/OrbitControls.js';
-import { FBXLoader } from './jsm/loaders/FBXLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { FBXLoader } from 'three-fbx-loader';
 
 useEffect(() => {
-    let camera, scene, renderer, stats;
+    let camera, scene, renderer;
     const clock = new THREE.Clock();
     let mixer;
 
@@ -84,8 +83,6 @@ useEffect(() => {
 
         window.addEventListener('resize', onWindowResize);
 
-        stats = new Stats();
-        container.appendChild(stats.dom);
 
     }
 
@@ -101,7 +98,6 @@ useEffect(() => {
         const delta = clock.getDelta();
         if (mixer) mixer.update(delta);
         renderer.render(scene, camera);
-        stats.update();
     }
 }, []);
 

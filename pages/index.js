@@ -4,11 +4,12 @@ import * as THREE from 'three';
 
 import { Layout } from '../components/layouts/layout'
 import { FBXLoader } from '/utils/three/jsm/loaders/FBXLoader.js'
+import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
 
 
 export default function Home() {
   useEffect(() => {
-    let camera, scene, renderer, character_container;
+    let camera, scene, renderer, character_container, controls;
     const clock = new THREE.Clock();
     let mixer;
     init();
@@ -20,7 +21,7 @@ export default function Home() {
       let container_width = character_container.clientWidth;
 
       camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-      camera.position.set(100, 100, 300);
+      camera.position.set(0, 100, 300);
 
       scene = new THREE.Scene();
       scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
@@ -54,6 +55,12 @@ export default function Home() {
       // Somehow this runs twice on the first render.
       if (character_container.childElementCount === 0) {
         character_container.appendChild(renderer.domElement);
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.screenSpacePanning = true;
+        controls.minDistance = 200;
+        controls.maxDistance = 400;
+        controls.target.set(0, 100, 0);
+        controls.update();
       }
     }
 
@@ -68,7 +75,7 @@ export default function Home() {
   return (
     <Layout>
       <main className="relative h-screen w-screen bg-slate-900">
-        <div id="character_div" className="absolute h-1/2 w-1/2 bottom-12 right-0" />
+        <div id="character_div" className="absolute h-1/2 aspect-square bottom-12 right-0 bg-slate-300 rounded-full" />
       </main>
     </Layout>
   )

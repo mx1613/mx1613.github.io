@@ -1,6 +1,8 @@
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
-import React, { useEffect } from 'react';
 import * as THREE from 'three';
+import Box from '@mui/material/Box';
 
 import { Layout } from '../components/layouts/layout'
 import { FBXLoader } from '/utils/three/jsm/loaders/FBXLoader.js'
@@ -8,6 +10,8 @@ import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
 
 
 export default function Home() {
+  const [isShown, setIsShown] = useState(false);
+
   useEffect(() => {
     let camera, scene, renderer, character_container, controls;
     const clock = new THREE.Clock();
@@ -42,6 +46,7 @@ export default function Home() {
       const loader = new FBXLoader();
       loader.load('/assets/three_models/Twerking_Rick.fbx', function (object) {
         mixer = new THREE.AnimationMixer(object);
+        console.log(object.animations[0])
         const action = mixer.clipAction(object.animations[0]);
         action.play();
         object.traverse(function (child) {
@@ -92,10 +97,21 @@ export default function Home() {
 
   return (
     <Layout>
-      <main className="relative h-screen w-screen bg-slate-400">
+      <main className="relative h-screen w-screen bg-slate-900">
         <div id="character_div" className="absolute h-1/2 aspect-square bottom-14 right-0 rounded-full" />
-        <div id="personal_info" className="absolute bg-slate-800 h-1/4 aspect-square rounded-xl left-4 top-4 " />
-
+        <div
+          id="personal_info"
+          className="absolute h-10 aspect-square content-center rounded-xl left-4 top-4"
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        >
+          {isShown && (
+            <div className="absolute h-fit aspect-square bg-slate-800 content-center rounded-xl left-10 top-10">
+              Former roboticist, web developer and data scientist wannabe. Rick and Morty fan.
+            </div>
+          )}
+          <Image src="/icons/info.svg" layout="fill" />
+        </div>
       </main>
     </Layout>
   )

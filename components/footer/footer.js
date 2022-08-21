@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
     return (
@@ -7,7 +8,7 @@ export function Footer() {
                 &copy; {new Date().getFullYear()} Copyright Michele Xiloyannis
             </div>
             <div className="px-4 flex gap-2">
-                <img src="/icons/github-logo.svg" />
+                <Image src="/icons/github-logo.svg" width={30} height={30} />
                 <Link href="https://github.com/mx1613/michele.info">
                     Source Code
                 </Link>

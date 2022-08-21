@@ -21,7 +21,7 @@ export default function Home() {
       let container_width = character_container.clientWidth;
 
       camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-      camera.position.set(0, 100, 300);
+      camera.position.set(0, 100, 400);
 
       scene = new THREE.Scene();
 
@@ -94,6 +94,8 @@ export default function Home() {
     <Layout>
       <main className="relative h-screen w-screen bg-slate-400">
         <div id="character_div" className="absolute h-1/2 aspect-square bottom-14 right-0 rounded-full" />
+        <div id="personal_info" className="absolute bg-slate-800 h-1/4 aspect-square rounded-xl left-4 top-4 " />
+
       </main>
     </Layout>
   )

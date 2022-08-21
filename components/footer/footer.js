@@ -6,8 +6,8 @@ export function Footer() {
             <div className="right-0 px-4">
                 &copy; {new Date().getFullYear()} Copyright Michele Xiloyannis
             </div>
-
-            <div className="px-4">
+            <div className="px-4 flex gap-2">
+                <img src="/icons/github-logo.svg" />
                 <Link href="https://github.com/mx1613/michele.info">
                     Source Code
                 </Link>

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Footer } from "../footer/footer";
+import { Header } from '../header/header';
 
 
 export const Layout = ({ children, title = "Info@Michele", description = "A basic intro to myself" }) => {

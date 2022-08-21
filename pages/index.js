@@ -24,15 +24,20 @@ export default function Home() {
       camera.position.set(0, 100, 300);
 
       scene = new THREE.Scene();
-      scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
 
-      const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff);
-      hemiLight.position.set(100, 200, 0);
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
+      hemiLight.position.set(0, 1, 1);
       scene.add(hemiLight);
 
-      const dirLight = new THREE.DirectionalLight(0xffffff);
-      dirLight.position.set(100, 200, 100);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+      dirLight.position.set(0, 1, 1);
       scene.add(dirLight);
+
+
+      const spotLight = new THREE.SpotLight(0xffffff);
+      spotLight.position.set(0, 1, 1);
+      scene.add(spotLight);
+
 
       const loader = new FBXLoader();
       loader.load('/assets/three_models/Twerking_Rick.fbx', function (object) {
@@ -45,6 +50,7 @@ export default function Home() {
             child.receiveShadow = true;
           }
         });
+
         scene.add(object);
       });
 
@@ -62,6 +68,8 @@ export default function Home() {
         controls.target.set(0, 100, 0);
         controls.update();
       }
+      window.addEventListener('resize', onWindowResize);
+
     }
 
     function animate() {
@@ -70,12 +78,22 @@ export default function Home() {
       if (mixer) mixer.update(delta);
       renderer.render(scene, camera);
     }
+
+    function onWindowResize() {
+      let container_height = document.getElementById('character_div').clientHeight;
+      let container_width = document.getElementById('character_div').clientWidth;
+      camera.aspect = container_width / container_height;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(container_width, container_height);
+
+    }
   }, []);
 
   return (
     <Layout>
-      <main className="relative h-screen w-screen bg-slate-900">
-        <div id="character_div" className="absolute h-1/2 aspect-square bottom-12 right-0 bg-slate-300 rounded-full" />
+      <main className="relative h-screen w-screen bg-black">
+        <div id="character_div" className="absolute h-1/2 aspect-square bottom-14 right-0 rounded-full" />
       </main>
     </Layout>
   )

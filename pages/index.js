@@ -92,7 +92,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <main className="relative h-screen w-screen bg-black">
+      <main className="relative h-screen w-screen bg-slate-400">
         <div id="character_div" className="absolute h-1/2 aspect-square bottom-14 right-0 rounded-full" />
       </main>
     </Layout>

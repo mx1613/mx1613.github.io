@@ -29,7 +29,7 @@ export function Rick({ className }) {
 
             function initCamera() {
                 camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(0, 100, 300);
+                camera.position.set(-1200, 100, 300);
 
                 scene = new THREE.Scene();
 
@@ -53,9 +53,13 @@ export function Rick({ className }) {
 
             function initRenderer() {
                 const loader = new FBXLoader();
-                loader.load(`/assets/three_models/Twerking_Rick.fbx`, function (object) {
+                loader.load(`/assets/three_models/Drunk_Rick.fbx`, function (object) {
                     mixer = new THREE.AnimationMixer(object);
                     const action = mixer.clipAction(object.animations[1]);
+                    mixer.addEventListener('finished', function (e) {
+                        document.getElementById('rick_div').style.visibility = 'hidden'
+                    });
+                    action.setLoop(THREE.LoopOnce);
                     action.play();
                     object.traverse(function (child) {
                         if (child.isMesh) {
@@ -79,7 +83,7 @@ export function Rick({ className }) {
                     controls.screenSpacePanning = true;
                     controls.minDistance = 200;
                     controls.maxDistance = 400;
-                    controls.target.set(0, 100, -30);
+                    controls.target.set(0, 140, -30);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);

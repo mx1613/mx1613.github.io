@@ -83,7 +83,7 @@ export function Morty({ className }) {
                     controls.screenSpacePanning = true;
                     controls.minDistance = 200;
                     controls.maxDistance = 400;
-                    controls.target.set(0, 220, 20);
+                    controls.target.set(0, 220, 60);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);

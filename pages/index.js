@@ -49,6 +49,10 @@ export default function Home() {
         spotLight.position.set(0, 1, 1);
         scene.add(spotLight);
 
+        const pointLight = new THREE.PointLight(0xffffff, 1, 0);
+        pointLight.position.set(0, 0, 0);
+        scene.add(pointLight);
+
       }
 
       function initRenderer() {
@@ -83,7 +87,7 @@ export default function Home() {
           controls.screenSpacePanning = true;
           controls.minDistance = 200;
           controls.maxDistance = 400;
-          controls.target.set(0, 200, 20);
+          controls.target.set(0, 220, 20);
           controls.update();
         }
         window.addEventListener('resize', onWindowResize);

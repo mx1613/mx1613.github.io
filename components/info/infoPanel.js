@@ -20,7 +20,7 @@ export function InfoPanel() {
                     Web developer wannabe. <br />
                 </div>
             )}
-            <Image src="/icons/info.svg" layout="fill" />
+            <Image src="/icons/info.svg" alt="Info icon" layout="fill" />
         </div>
     )
 }

@@ -13,6 +13,7 @@ export const Layout = ({ children, title = "Info@Michele", description = "A basi
             <main>
                 {children}
             </main>
+            <Header />
             <Footer />
         </>
     );

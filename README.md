@@ -1,3 +1,5 @@
+![health-check](https://github.com/mx1613/michele.info/actions/workflows/node.js.yml/badge.svg)
+
 # Page description 
 A single-pager that displays some basic infomration about myself. It is written with NextJS and with the help of Tailwind for styling. 
 

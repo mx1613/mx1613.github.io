@@ -37,20 +37,19 @@ export default function Home() {
         scene = new THREE.Scene();
 
         const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
-        hemiLight.position.set(0, 1, 1);
         scene.add(hemiLight);
 
         const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-        dirLight.position.set(0, 1, 1);
+        dirLight.position.set(0, 1000, 1000);
         scene.add(dirLight);
 
 
         const spotLight = new THREE.SpotLight(0xffffff);
-        spotLight.position.set(0, 1, 1);
+        spotLight.position.set(0, 1000, 1000);
         scene.add(spotLight);
 
         const pointLight = new THREE.PointLight(0xffffff, 1, 0);
-        pointLight.position.set(0, 0, 0);
+        pointLight.position.set(0, 1000, 1000);
         scene.add(pointLight);
 
       }

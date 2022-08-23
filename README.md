@@ -1,7 +1,3 @@
-![build](https://github.com/mx1613/michele.info/actions/workflows/nextjs.yml/badge.svg)
-![deploy](https://github.com/mx1613/michele.info/actions/workflows/pages/pages-build-deployment/badge.svg)
-
-
 # Page description 
 A single-pager that displays some basic infomration about myself. It is written with NextJS and with the help of Tailwind for styling. 
 

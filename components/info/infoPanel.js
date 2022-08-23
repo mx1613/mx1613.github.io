@@ -13,7 +13,7 @@ export function InfoPanel() {
             onMouseLeave={() => setIsShown(false)}
         >
             {isShown && (
-                <div className="absolute w-64 bg-slate-800 text-left rounded-xl left-10 top-10 py-4 px-4">
+                <div className="absolute w-64 bg-slate-800 text-left rounded-xl left-4 sm:left-10 top-20 sm:top-10 py-4 px-4">
                     Roboticist. <br />
                     Rick and Morty fan. <br />
                     Data scientist wannabe. <br />

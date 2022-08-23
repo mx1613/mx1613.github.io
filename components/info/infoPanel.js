@@ -8,7 +8,7 @@ export function InfoPanel() {
     return (
         <div
             id="personal_info"
-            className="absolute h-10 aspect-square content-center rounded-xl left-4 top-4"
+            className="absolute h-10 aspect-square content-center rounded-full shadow-lg left-4 top-4"
             onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}
         >

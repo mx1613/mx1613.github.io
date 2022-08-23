@@ -12,7 +12,7 @@ export function Header() {
                 </Link>
             </div>
             <div className="px-4 flex gap-2" style={{ cursor: 'pointer' }}>
-                <Link href="https://github.com/mx1613/michele.info" passHref>
+                <Link href="https://github.com/mx1613/" passHref>
                     <a>
                         <Image src="/icons/github-logo.svg" alt="Github icon" width={30} height={30} />
                     </a>

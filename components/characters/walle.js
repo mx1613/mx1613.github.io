@@ -29,7 +29,7 @@ export function Walle({ className }) {
 
             function initCamera() {
                 camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(-500, 500, 1500);
+                camera.position.set(-500, 500, 1800);
 
                 scene = new THREE.Scene();
 
@@ -71,7 +71,7 @@ export function Walle({ className }) {
                     controls.screenSpacePanning = true;
                     controls.minDistance = 200;
                     controls.maxDistance = 1800;
-                    controls.target.set(300, 500, 0);
+                    controls.target.set(300, 600, 0);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);

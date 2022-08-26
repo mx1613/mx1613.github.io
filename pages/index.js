@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { Layout } from '../components/layouts/layout'
 import { Rick } from '../components/characters/rick';
 import { Walle } from '../components/characters/walle';

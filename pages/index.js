@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DayNightToggle from 'react-day-and-night-toggle'
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 import { Layout } from '../components/layouts/layout'
 import { Rick } from '../components/characters/rick';
@@ -28,9 +28,13 @@ export default function Home() {
           className="absolute w-80 h-72 top-20 right-0 rounded-full"
         />
         <div className="absolute top-0 2 m-4">
-          <DayNightToggle
-            onChange={() => setDarkMode(!isDarkMode)}
+          <DarkModeSwitch
+            style={{ marginBottom: '2rem' }}
             checked={isDarkMode}
+            onChange={() => setDarkMode(!isDarkMode)}
+            size={40}
+            sunColor="#0f172a"
+            moonColor="#ffffff"
           />
         </div>
         <InfoPanel isDarkMode={isDarkMode} />

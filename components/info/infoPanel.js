@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 
+import Emoji from 'a11y-react-emoji'
+
 
 export function InfoPanel({ isDarkMode }) {
     const [isShown, setIsShown] = useState(false);
@@ -20,10 +22,10 @@ export function InfoPanel({ isDarkMode }) {
             </div>
             {isShown && (
                 <div className={`absolute w-fit ${isDarkMode ? "bg-white text-slate-900" : "bg-slate-900 text-white"}  text-left rounded-xl py-8 px-8`}>
-                    I love to solve problems. <br />
-                    Roboticist by training. <br />
-                    Rick and Morty fan. <br />
-                    Gufetto lover. <br />
+                    <Emoji symbol="🤔" label="thinking" />I love to solve problems. <br />
+                    <Emoji symbol="🤖" label="robot" />Roboticist by training. <br />
+                    <Emoji symbol="🧪" label="robot" />Rick and Morty fan. <br />
+                    <Emoji symbol="💕" label="love" />Gufetto lover. <br />
                 </div>
             )}
         </div >

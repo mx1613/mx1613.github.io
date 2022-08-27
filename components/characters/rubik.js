@@ -29,17 +29,25 @@ export function RubikCube({ className }) {
 
             function initCamera() {
                 camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(15, 7, 3);
+                camera.position.set(21, 13, 9);
 
                 scene = new THREE.Scene();
 
-                const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
+                const hemiLight = new THREE.HemisphereLight(0xfef8dd, 0xfef8dd, 1);
                 scene.add(hemiLight);
 
-
-                const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-                dirLight.position.set(0, 0, 0);
+                const dirLight = new THREE.DirectionalLight(0xfef8dd, 1);
+                dirLight.position.set(15, 7, 3);
                 scene.add(dirLight);
+
+
+                const spotLight = new THREE.SpotLight(0xfef8dd);
+                spotLight.position.set(15, 7, 3);
+                scene.add(spotLight);
+
+                const pointLight = new THREE.PointLight(0xfef8dd, 1, 0);
+                pointLight.position.set(15, 7, 3);
+                scene.add(pointLight);
 
             }
 
@@ -48,6 +56,9 @@ export function RubikCube({ className }) {
                 loader.load(`/assets/three_models/rubik/Rubik_cube.fbx`, function (object) {
                     mixer = new THREE.AnimationMixer(object);
                     const action = mixer.clipAction(object.animations[0]);
+                    action.setLoop(THREE.LoopOnce)
+                    action.clampWhenFinished = true;
+                    action.enable = true;
                     action.play();
                     object.traverse(function (child) {
                         if (child.isMesh) {

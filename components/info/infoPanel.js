@@ -19,7 +19,7 @@ export function InfoPanel({ isDarkMode }) {
                 }
             </div>
             {isShown && (
-                <div className={`absolute w-fit ${isDarkMode ? "bg-slate-900 text-slate-300" : "bg-slate-300 text-slate-900"}  text-left rounded-xl py-8 px-8`}>
+                <div className={`absolute w-fit ${isDarkMode ? "bg-slate-900 text-white" : "bg-white text-slate-900"}  text-left rounded-xl py-8 px-8`}>
                     I love to solve problems. <br />
                     Roboticist by training. <br />
                     Rick and Morty fan. <br />

@@ -2,13 +2,11 @@ import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-import { FBXLoader } from '/utils/three/jsm/loaders/FBXLoader.js'
+import { GLTFLoader } from '/utils/three/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
 
 
-export function Morty({ className }) {
-    // Reddite quae sunt Caesaris Caesari  
-    // Morty - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution    
+export function Gufetto({ className }) {
 
     useEffect(() => {
         let camera, scene, renderer, character_container, controls, container_height, container_width;
@@ -25,54 +23,36 @@ export function Morty({ className }) {
             initRenderer();
 
             function initContainer() {
-                character_container = document.getElementById('morty_div');
+                character_container = document.getElementById('gufetto_div');
                 container_height = character_container.clientHeight;
                 container_width = character_container.clientWidth;
             }
 
             function initCamera() {
-                camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(-1400, 0, 400);
+                camera = new THREE.PerspectiveCamera();
+                camera.position.set(10, 4, 20);
 
                 scene = new THREE.Scene();
+                scene.add(camera);
 
                 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
                 scene.add(hemiLight);
 
-                const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-                dirLight.position.set(0, 1000, 1000);
-                scene.add(dirLight);
-
-
-                const spotLight = new THREE.SpotLight(0xffffff);
-                spotLight.position.set(0, 1000, 1000);
-                scene.add(spotLight);
-
-                const pointLight = new THREE.PointLight(0xffffff, 1, 0);
-                pointLight.position.set(0, 1000, 1000);
-                scene.add(pointLight);
 
             }
 
             function initRenderer() {
-                const loader = new FBXLoader();
-                loader.load(`/assets/three_models/Falling_Morty.fbx`, function (object) {
-                    mixer = new THREE.AnimationMixer(object);
-                    const action = mixer.clipAction(object.animations[0]);
-                    mixer.addEventListener('finished', function (e) {
-                        document.getElementById('morty_div').style.visibility = 'hidden'
-                    });
-                    action.setLoop(THREE.LoopOnce);
-                    action.play();
-                    object.traverse(function (child) {
-                        if (child.isMesh) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                        }
-                    });
+                const loader = new GLTFLoader();
+                loader.load(`/assets/three_models/gufetto/owl_animation_fly/scene.gltf`,
+                    (gltf) => {
+                        mixer = new THREE.AnimationMixer(gltf.scene)
+                        const action = mixer.clipAction(gltf.animations[0])
+                        scene.add(gltf.scene)
+                        action.play();
 
-                    scene.add(object);
-                });
+                    }, undefined, function (error) {
+                        console.error(error);
+                    });
 
                 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setPixelRatio(window.devicePixelRatio);
@@ -84,9 +64,9 @@ export function Morty({ className }) {
                     character_container.appendChild(renderer.domElement);
                     controls = new OrbitControls(camera, renderer.domElement);
                     controls.screenSpacePanning = true;
-                    controls.minDistance = 200;
-                    controls.maxDistance = 400;
-                    controls.target.set(0, 220, 60);
+                    controls.minDistance = 180;
+                    controls.maxDistance = 250;
+                    controls.target.set(-20, 0, 0);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);
@@ -101,8 +81,8 @@ export function Morty({ className }) {
         }
 
         function onWindowResize() {
-            let container_height_lc = document.getElementById('morty_div').clientHeight;
-            let container_width_lc = document.getElementById('morty_div').clientWidth;
+            let container_height_lc = document.getElementById('gufetto_div').clientHeight;
+            let container_width_lc = document.getElementById('gufetto_div').clientWidth;
             camera.aspect = container_width_lc / container_height_lc;
             camera.updateProjectionMatrix();
             renderer.setSize(container_width_lc, container_height_lc);
@@ -110,7 +90,7 @@ export function Morty({ className }) {
     }, []);
 
     return (
-        <div id="morty_div" className={className} />
+        <div id="gufetto_div" className={className} />
 
     )
 }

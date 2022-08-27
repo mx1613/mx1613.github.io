@@ -15,8 +15,9 @@
     "install-peerdeps": "^3.0.3",
     "next": "12.2.5",
     "react": "^18.2.0",
+    "react-day-and-night-toggle": "^1.0.18",
     "react-dom": "18.2.0",
-    "react-toggle-dark-mode": "1.1.0",
+    "styled-components": "^5.3.5",
     "three": "^0.143.0"
   },
   "devDependencies": {

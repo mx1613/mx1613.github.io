@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export function Header({ isDarkMode }) {
     return (
-        <div className={`absolute w-64 py-4 rounded-bl-lg ${isDarkMode ? "bg-slate-900" : "bg-slate-800 "} flex justify-between top-0 right-0 shadow-lg`}>
+        <div className={`absolute w-64 py-4 rounded-bl-lg ${isDarkMode ? "bg-slate-800 " : "bg-slate-900"} flex justify-between top-0 right-0 shadow-lg`}>
             <div className="px-4  gap-2" style={{ cursor: 'pointer' }}>
                 <Link href="https://scholar.google.com/citations?user=e8gAwugAAAAJ&hl=en">
                     <a>

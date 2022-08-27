@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import DayNightToggle from 'react-day-and-night-toggle'
 
 import { Layout } from '../components/layouts/layout'
 import { Rick } from '../components/characters/rick';
@@ -12,13 +12,9 @@ import { InfoPanel } from '../components/info/infoPanel';
 export default function Home() {
   const [isDarkMode, setDarkMode] = React.useState(true);
 
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-  };
-
   return (
     <Layout isDarkMode={isDarkMode}>
-      <main className={`relative h-screen w-screen ${isDarkMode ? "bg-white" : "bg-slate-900"}`} >
+      <main className={`relative h-screen w-screen ${isDarkMode ? "bg-slate-900" : "bg-white"} flex items-center justify-cente`} >
         <Rick
           className="absolute w-80 h-72 bottom-14 right-0 rounded-full"
         />
@@ -31,14 +27,12 @@ export default function Home() {
         <Gufetto
           className="absolute w-80 h-72 top-20 right-0 rounded-full"
         />
-        <DarkModeSwitch
-          checked={isDarkMode}
-          onChange={toggleDarkMode}
-          size={40}
-          className="absolute top-4 right-1/2"
-          moonColor="#000000"
-          sunColor="#ffffff"
-        />
+        <div className="absolute top-0 2 m-4">
+          <DayNightToggle
+            onChange={() => setDarkMode(!isDarkMode)}
+            checked={isDarkMode}
+          />
+        </div>
         <InfoPanel isDarkMode={isDarkMode} />
       </main>
     </Layout >

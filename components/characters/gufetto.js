@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-import { FBXLoader } from '/utils/three/jsm/loaders/FBXLoader.js'
+import { GLTFLoader } from '/utils/three/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
 
 
@@ -29,9 +29,8 @@ export function Gufetto({ className }) {
             }
 
             function initCamera() {
-                camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.rotation.set(Math.PI / 2, Math.PI / 2, 0)
-                camera.position.set(100, 0, 0);
+                camera = new THREE.PerspectiveCamera();
+                camera.position.set(10, 4, 20);
 
                 scene = new THREE.Scene();
                 scene.add(camera);
@@ -39,39 +38,21 @@ export function Gufetto({ className }) {
                 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
                 scene.add(hemiLight);
 
-                const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-                dirLight.position.set(0, 0, 0);
-                scene.add(dirLight);
-
-
-                const spotLight = new THREE.SpotLight(0xffffff);
-                spotLight.position.set(0, 0, 0);
-                scene.add(spotLight);
-
-                const pointLight = new THREE.PointLight(0xffffff, 1, 0);
-                pointLight.position.set(0, 0, 0);
-                scene.add(pointLight);
 
             }
 
             function initRenderer() {
-                const loader = new FBXLoader();
-                loader.load(`/assets/three_models/gufetto/Owl fly.fbx`, function (object) {
-                    mixer = new THREE.AnimationMixer(object);
-                    const action = mixer.clipAction(object.animations[0]);
-                    mixer.addEventListener('finished', function (e) {
-                        document.getElementById('gufetto_div').style.visibility = 'hidden'
-                    });
-                    action.play();
-                    object.traverse(function (child) {
-                        if (child.isMesh) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                        }
-                    });
+                const loader = new GLTFLoader();
+                loader.load(`/assets/three_models/gufetto/owl_animation_fly/scene.gltf`,
+                    (gltf) => {
+                        mixer = new THREE.AnimationMixer(gltf.scene)
+                        const action = mixer.clipAction(gltf.animations[0])
+                        scene.add(gltf.scene)
+                        action.play();
 
-                    scene.add(object);
-                });
+                    }, undefined, function (error) {
+                        console.error(error);
+                    });
 
                 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setPixelRatio(window.devicePixelRatio);
@@ -83,9 +64,9 @@ export function Gufetto({ className }) {
                     character_container.appendChild(renderer.domElement);
                     controls = new OrbitControls(camera, renderer.domElement);
                     controls.screenSpacePanning = true;
-                    controls.minDistance = 150;
-                    controls.maxDistance = 180;
-                    // controls.target.set(-10, -10, -10);
+                    controls.minDistance = 180;
+                    controls.maxDistance = 250;
+                    controls.target.set(-20, 0, 0);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);

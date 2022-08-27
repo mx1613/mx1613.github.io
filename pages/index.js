@@ -12,13 +12,9 @@ import { InfoPanel } from '../components/info/infoPanel';
 export default function Home() {
   const [isDarkMode, setDarkMode] = React.useState(true);
 
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-  };
-
   return (
     <Layout isDarkMode={isDarkMode}>
-      <main className={`relative h-screen w-screen ${isDarkMode ? "bg-slate-300" : "bg-slate-900"}`} >
+      <main className={`relative h-screen w-screen ${isDarkMode ? "bg-slate-900" : "bg-white"} flex items-center justify-cente`} >
         <Rick
           className="absolute w-80 h-72 bottom-14 right-0 rounded-full"
         />
@@ -31,14 +27,16 @@ export default function Home() {
         <Gufetto
           className="absolute w-80 h-72 top-20 right-0 rounded-full"
         />
-        <DarkModeSwitch
-          checked={isDarkMode}
-          onChange={toggleDarkMode}
-          size={40}
-          className="absolute top-4 right-1/2"
-          moonColor="#1e293b"
-          sunColor="#cbd5e1"
-        />
+        <div className="absolute top-0 2 m-4">
+          <DarkModeSwitch
+            style={{ marginBottom: '2rem' }}
+            checked={isDarkMode}
+            onChange={() => setDarkMode(!isDarkMode)}
+            size={40}
+            sunColor="#0f172a"
+            moonColor="#ffffff"
+          />
+        </div>
         <InfoPanel isDarkMode={isDarkMode} />
       </main>
     </Layout >

@@ -29,7 +29,7 @@ export function Walle({ className }) {
 
             function initCamera() {
                 camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(-500, 500, 1800);
+                camera.position.set(500, 500, 1800);
 
                 scene = new THREE.Scene();
 

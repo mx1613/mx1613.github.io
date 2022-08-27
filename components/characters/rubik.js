@@ -29,7 +29,7 @@ export function RubikCube({ className }) {
 
             function initCamera() {
                 camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(10, 10, 0);
+                camera.position.set(15, 7, 3);
 
                 scene = new THREE.Scene();
 
@@ -45,7 +45,7 @@ export function RubikCube({ className }) {
 
             function initRenderer() {
                 const loader = new FBXLoader();
-                loader.load(`/assets/three_models/rubik/source/Rubik_cube.fbx`, function (object) {
+                loader.load(`/assets/three_models/rubik/Rubik_cube.fbx`, function (object) {
                     mixer = new THREE.AnimationMixer(object);
                     const action = mixer.clipAction(object.animations[0]);
                     action.play();
@@ -71,7 +71,7 @@ export function RubikCube({ className }) {
                     controls.screenSpacePanning = true;
                     controls.minDistance = 20;
                     controls.maxDistance = 100;
-                    controls.target.set(0, 0, 0);
+                    controls.target.set(4, -2, -3);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);

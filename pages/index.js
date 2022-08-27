@@ -19,7 +19,7 @@ export default function Home() {
           className="absolute w-80 h-72 bottom-14 left-0 rounded-full"
         />
         <RubikCube
-          className="absolute w-80 h-72 bottom-56 left-54 rounded-full"
+          className="absolute w-80 h-72 top-20 left-0 rounded-full"
         />
         <InfoPanel />
       </main>

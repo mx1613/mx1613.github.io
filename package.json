@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mui/material": "^5.10.2",
+    "a11y-react-emoji": "^1.2.0",
     "install-peerdeps": "^3.0.3",
     "next": "12.2.5",
     "prop-types": "^15.8.1",

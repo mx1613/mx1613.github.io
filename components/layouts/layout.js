@@ -3,7 +3,7 @@ import { Footer } from "../footer/footer";
 import { Header } from '../header/header';
 
 
-export const Layout = ({ children, title = "Info@Michele", description = "A basic intro to myself" }) => {
+export const Layout = ({ children, title = "Info@Michele", description = "A basic intro to myself", isDarkMode }) => {
     return (
         <>
             <Head>
@@ -13,8 +13,8 @@ export const Layout = ({ children, title = "Info@Michele", description = "A basi
             <main>
                 {children}
             </main>
-            <Header />
-            <Footer />
+            <Header isDarkMode={isDarkMode} />
+            <Footer isDarkMode={isDarkMode} />
         </>
     );
 

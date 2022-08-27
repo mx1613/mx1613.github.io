@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <Layout>
+    <Layout isDarkMode={isDarkMode}>
       <main className={`relative h-screen w-screen ${isDarkMode ? "bg-slate-300" : "bg-slate-900"}`} >
         <Rick
           className="absolute w-80 h-72 bottom-14 right-0 rounded-full"
@@ -32,7 +32,6 @@ export default function Home() {
           className="absolute w-80 h-72 top-20 right-0 rounded-full"
         />
         <DarkModeSwitch
-          style={{ marginBottom: '2rem' }}
           checked={isDarkMode}
           onChange={toggleDarkMode}
           size={40}
@@ -41,7 +40,6 @@ export default function Home() {
           sunColor="#cbd5e1"
         />
         <InfoPanel isDarkMode={isDarkMode} />
-
       </main>
     </Layout >
   )

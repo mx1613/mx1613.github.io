@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export function Footer() {
+export function Footer({ isDarkMode }) {
 
     return (
-        <footer className="absolute w-screen rounded-t-lg bg-slate-800 py-4 flex flex-row justify-between bottom-0 shadow-lg">
+        <footer className={`absolute w-screen rounded-t-lg ${isDarkMode ? "bg-slate-900" : "bg-slate-800 "}  text-slate-300 py-4 flex flex-row justify-between bottom-0 shadow-lg`}>
             <div className="right-0 px-4">
                 <p className='md:text-sm '>&copy; {new Date().getFullYear()} Michele Xiloyannis</p>
             </div>

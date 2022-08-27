@@ -9,9 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/material": "^5.10.1",
+    "@mui/material": "^5.10.2",
     "install-peerdeps": "^3.0.3",
     "next": "12.2.5",
     "react": "^18.2.0",
@@ -22,7 +20,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
-    "eslint": "8.22.0",
+    "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"

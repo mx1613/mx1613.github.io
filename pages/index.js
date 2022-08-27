@@ -2,6 +2,8 @@ import React from 'react';
 import { Layout } from '../components/layouts/layout'
 import { Rick } from '../components/characters/rick';
 import { Walle } from '../components/characters/walle';
+import { RubikCube } from '../components/characters/rubik';
+
 import { InfoPanel } from '../components/info/infoPanel';
 
 export default function Home() {
@@ -15,6 +17,9 @@ export default function Home() {
         />
         <Walle
           className="absolute w-80 h-72 bottom-14 left-0 rounded-full"
+        />
+        <RubikCube
+          className="absolute w-80 h-72 bottom-56 left-54 rounded-full"
         />
         <InfoPanel />
       </main>

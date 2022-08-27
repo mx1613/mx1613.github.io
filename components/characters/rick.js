@@ -7,6 +7,9 @@ import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
 
 
 export function Rick({ className }) {
+    // Reddite quae sunt Caesaris Caesari  
+    // Rick Sanchez - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution
+
     useEffect(() => {
         let camera, scene, renderer, character_container, controls, container_height, container_width;
         const clock = new THREE.Clock();

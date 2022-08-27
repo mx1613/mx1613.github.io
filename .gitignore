@@ -37,4 +37,3 @@ next-env.d.ts
 
 # purchsed 3d models
 /licensed-models/*
-/public/assets/three_models/*

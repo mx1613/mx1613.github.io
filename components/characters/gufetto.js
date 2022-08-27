@@ -43,7 +43,7 @@ export function Gufetto({ className }) {
 
             function initRenderer() {
                 const loader = new GLTFLoader();
-                loader.load(`/assets/three_models/gufetto/owl_animation_fly/scene.gltf`,
+                loader.load(`/assets/three_models/gufetto/scene.gltf`,
                     (gltf) => {
                         mixer = new THREE.AnimationMixer(gltf.scene)
                         const action = mixer.clipAction(gltf.animations[0])

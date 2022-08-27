@@ -4,9 +4,6 @@ A single-pager that displays some basic infomration about myself. It is written 
 I used it as a chance to play around with the THREE.JS library, to animate Rick (and Morty, in the source code).
 
 
-### Reddite quae sunt Caesaris Caesari  
 
-Rick Sanchez - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution
 
-Morty - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution
 

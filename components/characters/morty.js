@@ -7,6 +7,9 @@ import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
 
 
 export function Morty({ className }) {
+    // Reddite quae sunt Caesaris Caesari  
+    // Morty - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution    
+
     useEffect(() => {
         let camera, scene, renderer, character_container, controls, container_height, container_width;
         const clock = new THREE.Clock();

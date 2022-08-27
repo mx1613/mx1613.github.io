@@ -3,6 +3,7 @@ import { Layout } from '../components/layouts/layout'
 import { Rick } from '../components/characters/rick';
 import { Walle } from '../components/characters/walle';
 import { RubikCube } from '../components/characters/rubik';
+import { Gufetto } from '../components/characters/gufetto';
 
 import { InfoPanel } from '../components/info/infoPanel';
 
@@ -20,6 +21,9 @@ export default function Home() {
         />
         <RubikCube
           className="absolute w-80 h-72 top-20 left-0 rounded-full"
+        />
+        <Gufetto
+          className="absolute w-80 h-72 top-20 right-0 rounded-full"
         />
         <InfoPanel />
       </main>

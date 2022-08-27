@@ -6,21 +6,23 @@ export function InfoPanel() {
     const [isShown, setIsShown] = useState(false);
 
     return (
-        <div
-            id="personal_info"
-            className="absolute h-10 aspect-square content-center rounded-full shadow-lg left-4 top-4"
-            onMouseEnter={() => setIsShown(true)}
-            onMouseLeave={() => setIsShown(false)}
-        >
+        <div className="w-screen h-screen flex items-center justify-center " >
+            <div
+                id="personal_info"
+                className="absolute h-10 aspect-square content-center rounded-full shadow-lg left-4 top-4"
+                onMouseEnter={() => setIsShown(true)}
+                onMouseLeave={() => setIsShown(false)}
+            >
+                <Image src="/icons/info.svg" alt="Info icon" layout="fill" />
+            </div>
             {isShown && (
-                <div className="absolute w-64 bg-slate-800 text-left rounded-xl left-4 sm:left-10 top-20 sm:top-10 py-4 px-4">
-                    Roboticist. <br />
+                <div className="absolute w-fit bg-slate-800 text-left rounded-xl py-4 px-4">
+                    I love to solve problems and create things. <br />
+                    Roboticist by training. <br />
                     Rick and Morty fan. <br />
-                    Data scientist wannabe. <br />
-                    Web developer wannabe. <br />
+                    Gufetto lover. <br />
                 </div>
             )}
-            <Image src="/icons/info.svg" alt="Info icon" layout="fill" />
-        </div>
+        </div >
     )
 }

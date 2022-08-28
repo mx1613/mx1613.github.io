@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import useSound from 'use-sound';
 
 import { Layout } from '../components/layouts/layout'
 import { Rick } from '../components/characters/rick';
@@ -9,8 +10,10 @@ import { RubikCube } from '../components/characters/rubik';
 import { Gufetto } from '../components/characters/gufetto';
 import { InfoPanel } from '../components/info/infoPanel';
 
+
 export default function Home() {
   const [isDarkMode, setDarkMode] = React.useState(true);
+  const [playClick] = useSound("/assets/sounds/switch.mp3");
 
   return (
     <Layout isDarkMode={isDarkMode}>
@@ -31,9 +34,12 @@ export default function Home() {
           <DarkModeSwitch
             style={{ marginBottom: '2rem' }}
             checked={isDarkMode}
-            onChange={() => setDarkMode(!isDarkMode)}
+            onChange={() => {
+              setDarkMode(!isDarkMode);
+              playClick();
+            }}
             size={40}
-            sunColor="#0f172a"
+            sunColor="#f59e0b"
             moonColor="#ffffff"
           />
         </div>

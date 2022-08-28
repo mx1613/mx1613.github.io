@@ -39,7 +39,7 @@ export default function Home() {
               playClick();
             }}
             size={40}
-            sunColor="#0f172a"
+            sunColor="#f59e0b"
             moonColor="#ffffff"
           />
         </div>

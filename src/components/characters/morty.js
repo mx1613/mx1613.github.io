@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-import { FBXLoader } from '/utils/three/jsm/loaders/FBXLoader.js'
-import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
+import { FBXLoader } from '/src/utils/three/jsm/loaders/FBXLoader.js'
+import { OrbitControls } from '/src/utils/three/jsm/controls/OrbitControls.js';
 
 
-export function RubikCube({ className }) {
+export function Morty({ className }) {
+    // Reddite quae sunt Caesaris Caesari  
+    // Morty - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution    
+
     useEffect(() => {
         let camera, scene, renderer, character_container, controls, container_height, container_width;
         const clock = new THREE.Clock();
@@ -22,43 +25,44 @@ export function RubikCube({ className }) {
             initRenderer();
 
             function initContainer() {
-                character_container = document.getElementById('rubik_div');
+                character_container = document.getElementById('morty_div');
                 container_height = character_container.clientHeight;
                 container_width = character_container.clientWidth;
             }
 
             function initCamera() {
                 camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
-                camera.position.set(21, 13, 9);
+                camera.position.set(-1400, 0, 400);
 
                 scene = new THREE.Scene();
 
-                const hemiLight = new THREE.HemisphereLight(0xfef8dd, 0xfef8dd, 1);
+                const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
                 scene.add(hemiLight);
 
-                const dirLight = new THREE.DirectionalLight(0xfef8dd, 1);
-                dirLight.position.set(15, 7, 3);
+                const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+                dirLight.position.set(0, 1000, 1000);
                 scene.add(dirLight);
 
 
-                const spotLight = new THREE.SpotLight(0xfef8dd);
-                spotLight.position.set(15, 7, 3);
+                const spotLight = new THREE.SpotLight(0xffffff);
+                spotLight.position.set(0, 1000, 1000);
                 scene.add(spotLight);
 
-                const pointLight = new THREE.PointLight(0xfef8dd, 1, 0);
-                pointLight.position.set(15, 7, 3);
+                const pointLight = new THREE.PointLight(0xffffff, 1, 0);
+                pointLight.position.set(0, 1000, 1000);
                 scene.add(pointLight);
 
             }
 
             function initRenderer() {
                 const loader = new FBXLoader();
-                loader.load(`/assets/three_models/rubik/Rubik_cube.fbx`, function (object) {
+                loader.load(`/assets/three_models/Falling_Morty.fbx`, function (object) {
                     mixer = new THREE.AnimationMixer(object);
                     const action = mixer.clipAction(object.animations[0]);
-                    action.setLoop(THREE.LoopOnce)
-                    action.clampWhenFinished = true;
-                    action.enable = true;
+                    mixer.addEventListener('finished', function (e) {
+                        document.getElementById('morty_div').style.visibility = 'hidden'
+                    });
+                    action.setLoop(THREE.LoopOnce);
                     action.play();
                     object.traverse(function (child) {
                         if (child.isMesh) {
@@ -80,9 +84,9 @@ export function RubikCube({ className }) {
                     character_container.appendChild(renderer.domElement);
                     controls = new OrbitControls(camera, renderer.domElement);
                     controls.screenSpacePanning = true;
-                    controls.minDistance = 20;
-                    controls.maxDistance = 100;
-                    controls.target.set(4, -2, -3);
+                    controls.minDistance = 200;
+                    controls.maxDistance = 400;
+                    controls.target.set(0, 220, 60);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);
@@ -97,8 +101,8 @@ export function RubikCube({ className }) {
         }
 
         function onWindowResize() {
-            let container_height_lc = document.getElementById('rubik_div').clientHeight;
-            let container_width_lc = document.getElementById('rubik_div').clientWidth;
+            let container_height_lc = document.getElementById('morty_div').clientHeight;
+            let container_width_lc = document.getElementById('morty_div').clientWidth;
             camera.aspect = container_width_lc / container_height_lc;
             camera.updateProjectionMatrix();
             renderer.setSize(container_width_lc, container_height_lc);
@@ -106,6 +110,7 @@ export function RubikCube({ className }) {
     }, []);
 
     return (
-        <div id="rubik_div" className={className} />
+        <div id="morty_div" className={className} />
+
     )
 }

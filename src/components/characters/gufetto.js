@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-import { GLTFLoader } from '/utils/three/jsm/loaders/GLTFLoader.js'
-import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from '/src/utils/three/jsm/loaders/GLTFLoader.js'
+import { OrbitControls } from '/src/utils/three/jsm/controls/OrbitControls.js';
 
 
 export function Gufetto({ className }) {

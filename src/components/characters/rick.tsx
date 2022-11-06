@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-import { GLTFLoader } from '/utils/three/jsm/loaders/GLTFLoader.js'
-import { OrbitControls } from '/utils/three/jsm/controls/OrbitControls.js';
+import { FBXLoader } from '../../utils/three/jsm/loaders/FBXLoader.js'
+import { OrbitControls } from '../../utils/three/jsm/controls/OrbitControls.js';
 
 
-export function Gufetto({ className }) {
+export function Rick({ className }) {
+    // Reddite quae sunt Caesaris Caesari  
+    // Rick Sanchez - Ready for UE4 Rigged by Exo404 is licensed under Creative Commons Attribution
 
     useEffect(() => {
         let camera, scene, renderer, character_container, controls, container_height, container_width;
@@ -23,36 +25,50 @@ export function Gufetto({ className }) {
             initRenderer();
 
             function initContainer() {
-                character_container = document.getElementById('gufetto_div');
+                character_container = document.getElementById('rick_div');
                 container_height = character_container.clientHeight;
                 container_width = character_container.clientWidth;
             }
 
             function initCamera() {
-                camera = new THREE.PerspectiveCamera();
-                camera.position.set(10, 4, 20);
+                camera = new THREE.PerspectiveCamera(45, container_width / container_height, 1, 2000);
+                camera.position.set(-1400, 100, 300);
 
                 scene = new THREE.Scene();
-                scene.add(camera);
 
                 const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
                 scene.add(hemiLight);
 
+                const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+                dirLight.position.set(0, 1000, 1000);
+                scene.add(dirLight);
+
+
+                const spotLight = new THREE.SpotLight(0xffffff);
+                spotLight.position.set(0, 1000, 1000);
+                scene.add(spotLight);
+
+                const pointLight = new THREE.PointLight(0xffffff, 1, 0);
+                pointLight.position.set(0, 1000, 1000);
+                scene.add(pointLight);
 
             }
 
             function initRenderer() {
-                const loader = new GLTFLoader();
-                loader.load(`/assets/three_models/gufetto/scene.gltf`,
-                    (gltf) => {
-                        mixer = new THREE.AnimationMixer(gltf.scene)
-                        const action = mixer.clipAction(gltf.animations[0])
-                        scene.add(gltf.scene)
-                        action.play();
-
-                    }, undefined, function (error) {
-                        console.error(error);
+                const loader = new FBXLoader();
+                loader.load(`/assets/three_models/ricks/Twerking_Rick.fbx`, function (object) {
+                    mixer = new THREE.AnimationMixer(object);
+                    const action = mixer.clipAction(object.animations[1]);
+                    action.play();
+                    object.traverse(function (child) {
+                        if (child.isMesh) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
                     });
+
+                    scene.add(object);
+                });
 
                 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
                 renderer.setPixelRatio(window.devicePixelRatio);
@@ -64,9 +80,9 @@ export function Gufetto({ className }) {
                     character_container.appendChild(renderer.domElement);
                     controls = new OrbitControls(camera, renderer.domElement);
                     controls.screenSpacePanning = true;
-                    controls.minDistance = 180;
-                    controls.maxDistance = 250;
-                    controls.target.set(-20, 0, 0);
+                    controls.minDistance = 200;
+                    controls.maxDistance = 400;
+                    controls.target.set(0, 140, -70);
                     controls.update();
                 }
                 window.addEventListener('resize', onWindowResize);
@@ -81,8 +97,8 @@ export function Gufetto({ className }) {
         }
 
         function onWindowResize() {
-            let container_height_lc = document.getElementById('gufetto_div').clientHeight;
-            let container_width_lc = document.getElementById('gufetto_div').clientWidth;
+            let container_height_lc = document.getElementById('rick_div').clientHeight;
+            let container_width_lc = document.getElementById('rick_div').clientWidth;
             camera.aspect = container_width_lc / container_height_lc;
             camera.updateProjectionMatrix();
             renderer.setSize(container_width_lc, container_height_lc);
@@ -90,7 +106,7 @@ export function Gufetto({ className }) {
     }, []);
 
     return (
-        <div id="gufetto_div" className={className} />
+        <div id="rick_div" className={className} />
 
     )
 }

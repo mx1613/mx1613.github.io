@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 import * as THREE from 'three';
 
-import { FBXLoader } from '/src/utils/three/jsm/loaders/FBXLoader.js'
-import { OrbitControls } from '/src/utils/three/jsm/controls/OrbitControls.js';
+import { FBXLoader } from '../../utils/three/jsm/loaders/FBXLoader.js'
+import { OrbitControls } from '../../utils/three/jsm/controls/OrbitControls.js';
 
 
 export function Walle({ className }) {

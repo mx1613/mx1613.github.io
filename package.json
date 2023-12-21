@@ -22,7 +22,7 @@
     "react-is": "^18.2.0",
     "react-toggle-dark-mode": "^1.1.0",
     "styled-components": "^5.3.5",
-    "three": "^0.143.0",
+    "three": "^0.159.0",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

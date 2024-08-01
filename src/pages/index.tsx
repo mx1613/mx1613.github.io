@@ -5,18 +5,22 @@ import clsx from 'clsx';
 
 import { Layout } from '../components/layouts/layout'
 import { InfoPanel } from '../components/info/infoPanel';
-import  ThreeDAnimation from '../components/characters/3d_scene';
+import  ThreeDScene from '../components/characters/Scene';
 const darkModeSwitchStyle = {
   marginBottom: '2rem',
+  className: 'z-50',
 };
 
 export default function Home() {
+
   const [isDarkMode, setDarkMode] = React.useState(true);
   const [playClick] = useSound("/assets/sounds/switch.mp3");
 
   return (
     <Layout isDarkMode={isDarkMode}>
-      <main className={clsx("relative h-screen w-screen",{"bg-slate-900":isDarkMode, "bg-white":!isDarkMode}, "flex items - center justify - cente")} >
+      <main className={clsx("relative h-screen w-screen",{"bg-slate-900":isDarkMode, "bg-white":!isDarkMode}, "flex items - center justify - center")} >
+        <ThreeDScene className="absolute inset-0" />
+        <InfoPanel isDarkMode={isDarkMode} />
         <div className="absolute top-0 2 m-4">
           <DarkModeSwitch
             style={darkModeSwitchStyle}
@@ -29,9 +33,7 @@ export default function Home() {
             sunColor="#f59e0b"
             moonColor="#ffffff"
           />
-        </div>
-        <ThreeDAnimation/>
-        <InfoPanel isDarkMode={isDarkMode} />
+        </div>        
       </main>
     </Layout >
   )

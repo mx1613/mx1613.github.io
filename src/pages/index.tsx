@@ -1,12 +1,14 @@
 import React from 'react';
-
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import useSound from 'use-sound';
+import clsx from 'clsx';
 
 import { Layout } from '../components/layouts/layout'
-import { Rick } from '../components/characters/rick';
 import { InfoPanel } from '../components/info/infoPanel';
-
+import  ThreeDAnimation from '../components/characters/3d_scene';
+const darkModeSwitchStyle = {
+  marginBottom: '2rem',
+};
 
 export default function Home() {
   const [isDarkMode, setDarkMode] = React.useState(true);
@@ -14,13 +16,10 @@ export default function Home() {
 
   return (
     <Layout isDarkMode={isDarkMode}>
-      <main className={`relative h-screen w-screen ${isDarkMode ? "bg-slate-900" : "bg-white"} flex items-center justify-cente`} >
-        <Rick
-          className="absolute w-80 h-72 bottom-14 right-0 rounded-full"
-        />
+      <main className={clsx("relative h-screen w-screen",{"bg-slate-900":isDarkMode, "bg-white":!isDarkMode}, "flex items - center justify - cente")} >
         <div className="absolute top-0 2 m-4">
           <DarkModeSwitch
-            style={{ marginBottom: '2rem' }}
+            style={darkModeSwitchStyle}
             checked={isDarkMode}
             onChange={() => {
               setDarkMode(!isDarkMode);
@@ -31,6 +30,7 @@ export default function Home() {
             moonColor="#ffffff"
           />
         </div>
+        <ThreeDAnimation/>
         <InfoPanel isDarkMode={isDarkMode} />
       </main>
     </Layout >

@@ -1,9 +1,15 @@
 import Link from 'next/link';
+import clsx from 'clsx';
 
-export function Footer({ isDarkMode }) {
+interface FooterProps {
+    isDarkMode?: boolean;
+}
+  
+
+export function Footer({ isDarkMode }: FooterProps) {
 
     return (
-        <footer className={`absolute w-screen rounded-t-lg ${isDarkMode ? "bg-slate-800 " : "bg-slate-900"}  text-white py-4 flex flex-row justify-between bottom-0 shadow-lg`}>
+        <footer className={clsx("absolute w-screen rounded-t-lg", {"bg-slate-800":isDarkMode, "bg-slate-900":isDarkMode}, "text-white py-4 flex flex-row justify-between bottom-0 shadow-lg")}>
             <div className="right-0 px-4">
                 <p className='md:text-sm '>&copy; {new Date().getFullYear()} Michele Xiloyannis</p>
             </div>

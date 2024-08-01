@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
+import clsx from 'clsx';
 
-import Emoji from 'a11y-react-emoji'
+interface InfoPanelProps {
+    isDarkMode?: boolean;
+}
+  
 
-
-export function InfoPanel({ isDarkMode }) {
+export function InfoPanel({ isDarkMode = false }: InfoPanelProps) {
     const [isShown, setIsShown] = useState(false);
 
     return (
@@ -16,16 +19,14 @@ export function InfoPanel({ isDarkMode }) {
                 onMouseLeave={() => setIsShown(false)}
             >
                 {isDarkMode ?
-                    <Image src="/icons/info-dark.svg" alt="Info icon" layout="fill" /> :
-                    <Image src="/icons/info-light.svg" alt="Info icon" layout="fill" />
+                    <Image src="/icons/info-dark.svg" alt="Info icon" fill/> :
+                    <Image src="/icons/info-light.svg" alt="Info icon" fill />
                 }
             </div>
             {isShown && (
-                <div className={`absolute w-fit ${isDarkMode ? "bg-white text-slate-900" : "bg-slate-900 text-white"}  text-left rounded-xl py-8 px-8`}>
-                    <Emoji symbol="🤔" label="thinking" />I love to solve problems. <br />
-                    <Emoji symbol="🤖" label="robot" />Roboticist by training. <br />
-                    <Emoji symbol="🧪" label="robot" />Rick and Morty fan. <br />
-                    <Emoji symbol="💕" label="love" />Gufetto lover. <br />
+                <div className={clsx("absolute w-fit",{"bg-white text-slate-900":isDarkMode, "bg-slate-900 text-white":isDarkMode}, "aatext-left rounded-xl py-8 px-8")}>
+                    🤔 I love to solve problems. <br />
+                    🤖 Roboticist by training. <br />
                 </div>
             )}
         </div >

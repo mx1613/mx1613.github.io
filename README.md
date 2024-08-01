@@ -1,5 +1,5 @@
 # Page description 
-Personal website
+Personal website and palyground for frontend development.
 
 
 

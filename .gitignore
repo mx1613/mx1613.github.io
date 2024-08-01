@@ -38,3 +38,6 @@ built/*
 
 # purchsed 3d models
 /licensed-models/*
+
+# Million Lint
+.million

@@ -1,19 +1,12 @@
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-interface HeaderProps {
-  isDarkMode?: boolean;
-}
-
-export function Header({ isDarkMode = false }: Readonly<HeaderProps>) {
+export function Header() {
   return (
     <div
-      className={clsx(
-        "absolute w-32 py-4 rounded-bl-lg",
-        { "bg-slate-800": isDarkMode, "bg-slate-900": !isDarkMode },
-        "flex justify-between top-0 right-0 shadow-lg",
-      )}
+      className={
+        "absolute w-32 py-4 rounded-bl-lg bg-slate-800 flex justify-between top-0 right-0 shadow-lg"
+      }
     >
       <div className="px-4  gap-2" style={{ cursor: "pointer" }}>
         <Link href="https://scholar.google.com/citations?user=e8gAwugAAAAJ&hl=en">

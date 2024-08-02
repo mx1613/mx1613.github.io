@@ -1,18 +1,11 @@
-import clsx from "clsx";
 import Link from "next/link";
 
-interface FooterProps {
-  isDarkMode?: boolean;
-}
-
-export function Footer({ isDarkMode }: FooterProps) {
+export function Footer() {
   return (
     <footer
-      className={clsx(
-        "absolute w-screen rounded-t-lg",
-        { "bg-slate-800": isDarkMode, "bg-slate-900": !isDarkMode },
-        "text-white py-4 flex flex-row justify-between bottom-0 shadow-lg",
-      )}
+      className={
+        "absolute w-screen rounded-t-lg bg-slate-800 text-white py-4 flex flex-row justify-between bottom-0 shadow-lg"
+      }
     >
       <div className="right-0 px-4">
         <p className="md:text-sm ">

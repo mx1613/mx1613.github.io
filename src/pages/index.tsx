@@ -1,11 +1,11 @@
+import clsx from "clsx";
 import React from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import useSound from "use-sound";
-import clsx from "clsx";
 
-import { Layout } from "../components/layouts/layout";
-import { InfoPanel } from "../components/info/infoPanel";
 import ThreeDScene from "../components/characters/Scene";
+import { InfoPanel } from "../components/info/infoPanel";
+import { Layout } from "../components/layouts/layout";
 const darkModeSwitchStyle = {
   marginBottom: "2rem",
   className: "z-50",

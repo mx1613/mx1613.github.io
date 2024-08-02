@@ -1,12 +1,10 @@
 import React from "react";
 
-import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, OrthographicCamera } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
 import Walle from "./walle";
 
-const BACKGROUNCOLOR_LIGHT = "#f0f0f0";
-const BACKGROUNCOLOR_DARK = "#0f172a";
 interface ThreeDSceneProps {
   className?: string;
 }

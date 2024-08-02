@@ -1,6 +1,6 @@
-import Image from "next/image";
-import React, { useState } from "react";
 import clsx from "clsx";
+import Image from "next/image";
+import { useState } from "react";
 
 interface InfoPanelProps {
   readonly isDarkMode?: boolean;

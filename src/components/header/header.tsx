@@ -1,12 +1,12 @@
-import Link from "next/link";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
+import Link from "next/link";
 
 interface HeaderProps {
   isDarkMode?: boolean;
 }
 
-export function Header({ isDarkMode = false }: HeaderProps) {
+export function Header({ isDarkMode = false }: Readonly<HeaderProps>) {
   return (
     <div
       className={clsx(

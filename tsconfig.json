@@ -3,11 +3,7 @@
     "outDir": "./built",
     "allowJs": true,
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -17,14 +13,16 @@
     "module": "esnext",
     "isolatedModules": true,
     "jsx": "preserve",
-    "moduleResolution": "node",    
-    "resolveJsonModule": true
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["./src/**/*", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
   "types": ["next", "next/types/global"]
 }

@@ -13,7 +13,7 @@ const ThreeDScene: React.FC<ThreeDSceneProps> = ({ className }) => {
   return (
     <div className={className}>
       <Canvas>
-        <OrthographicCamera makeDefault position={[0, -2, 15]} zoom={50} />
+        <OrthographicCamera makeDefault position={[5, 5, 22]} zoom={50} />
         <ambientLight intensity={1} />
         <directionalLight position={[0, 2, 1]} />
         <pointLight position={[0, 2, 1]} />

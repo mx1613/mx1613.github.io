@@ -5,7 +5,7 @@ import { Header } from "../components/Header";
 import { Info, InfoData } from "../components/Info";
 
 export default async function Home(): Promise<JSX.Element> {
-  const { infoData } = await fetchInfoData();
+  const { infoData } = await fetchData();
 
   return (
     <main className="relative h-screen w-screen bg-slate-900 flex items - center justify - center">
@@ -17,7 +17,7 @@ export default async function Home(): Promise<JSX.Element> {
   );
 }
 
-export async function fetchInfoData(): Promise<{ infoData: InfoData }> {
+async function fetchData(): Promise<{ infoData: InfoData }> {
   let sbParams: ISbStoriesParams = { version: "draft" };
   const storyblokApi = getStoryblokApi();
   if (!storyblokApi) {

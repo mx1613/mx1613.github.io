@@ -1,7 +1,3 @@
-# Page description 
-Personal website
+# Page description
 
-
-
-
-
+Personal website and playground for frontend dev.

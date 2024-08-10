@@ -1,3 +1,3 @@
 # Page description
 
-Personal website and palyground for frontend development.
+Personal website and playground for frontend dev.

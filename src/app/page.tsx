@@ -28,6 +28,5 @@ export async function fetchInfoData(): Promise<{ infoData: InfoData }> {
     sbParams,
     { cache: "no-store" },
   );
-  console.info("Fetching data from Storyblok API", response.data);
   return { infoData: response.data };
 }

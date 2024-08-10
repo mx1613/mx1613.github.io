@@ -16,7 +16,11 @@ export interface InfoData {
   };
 }
 
-export function Info({ data = null}: { readonly data: InfoData | null  }): JSX.Element {
+export function Info({
+  data = null,
+}: {
+  readonly data: InfoData | null;
+}): JSX.Element {
   const [isShown, setIsShown] = useState(false);
   return (
     <div className="w-screen h-screen flex items-start justify-start p-4">

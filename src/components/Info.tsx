@@ -22,7 +22,6 @@ export function Info({
   readonly data: InfoData | null;
 }): JSX.Element {
   const [isShown, setIsShown] = useState(false);
-  console.log(data);
   return (
     <div className="w-screen h-screen flex items-start justify-start p-4">
       <div //NOSONAR

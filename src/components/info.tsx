@@ -34,9 +34,7 @@ export function Info({ data }: { readonly data: InfoData }): JSX.Element {
             "absolute mt-12 ml-8 w-fit max-w-[30%] left-20 bg-white text-slate-900 text-left rounded-xl py-8 px-8"
           }
         >
-          <h2 >
-            {data.story.content.body[0].headline}
-          </h2>
+          <h2>{data.story.content.body[0].headline}</h2>
         </div>
       )}
     </div>

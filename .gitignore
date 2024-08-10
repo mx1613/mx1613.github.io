@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn 
 
 # testing
 /coverage
@@ -35,7 +36,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 built/*
-
-# purchsed 3d models
-/licensed-models/*
 

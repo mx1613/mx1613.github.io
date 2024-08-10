@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint && prettier --check . --plugin=prettier-plugin-organize-imports",
-    "format": "prettier --write . --plugin=prettier-plugin-organize-imports"
+    "format": "prettier --write . --plugin=prettier-plugin-organize-imports",
+    "all": "yarn lint && yarn build && yarn start"
   },
   "dependencies": {
     "@react-three/drei": "^9.109.2",

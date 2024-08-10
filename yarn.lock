@@ -583,6 +583,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storyblok/js@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "@storyblok/js@npm:3.0.8"
+  dependencies:
+    storyblok-js-client: "npm:^6.7.2"
+  checksum: 10c0/8ef58a31fa5890f8c04f1030e693d0e7155ca399cac5dc4a542a66906a51d14d61848d4861238cf7577690ee97b83937a011242de74eadb8845518d9db28b63d
+  languageName: node
+  linkType: hard
+
+"@storyblok/react@npm:^3.0.10":
+  version: 3.0.10
+  resolution: "@storyblok/react@npm:3.0.10"
+  dependencies:
+    "@storyblok/js": "npm:^3.0.8"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: 10c0/fb0415861f18d2e19891dde315e4d20d88a59e9c9bf4dba994fbbb4836052a356e0547bb5506347b5c0ffc0db2bf2bc4542d2ac1123ced633d0526f99dd66431
+  languageName: node
+  linkType: hard
+
 "@swc/counter@npm:^0.1.3":
   version: 0.1.3
   resolution: "@swc/counter@npm:0.1.3"
@@ -4247,6 +4268,7 @@ __metadata:
   dependencies:
     "@react-three/drei": "npm:^9.109.2"
     "@react-three/fiber": "npm:^8.16.8"
+    "@storyblok/react": "npm:^3.0.10"
     "@types/node": "npm:^22.0.2"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
@@ -5899,6 +5921,13 @@ __metadata:
   dependencies:
     node-statsd: "npm:0.1.1"
   checksum: 10c0/eab7860d0f00d032bf9c33dc8d5832f6b1f6e95f108d11fa2aef2a8ccd2068f95ca2efba24cebd013005a8a1b1725423eaaa278e29e748c4e20bd01f0634a0f2
+  languageName: node
+  linkType: hard
+
+"storyblok-js-client@npm:^6.7.2":
+  version: 6.8.1
+  resolution: "storyblok-js-client@npm:6.8.1"
+  checksum: 10c0/cbc5b6368252664d8a13fde3a2cbfd98f324629100df4c22cef803b0a629899e37c985b821450fccb92d027fcb0fe7e4dcc7c46bf3611dc18cb1fa48d88d7f40
   languageName: node
   linkType: hard
 

@@ -1,9 +1,23 @@
+"use client";
 import Image from "next/image";
 import { useState } from "react";
 
-export function Info() {
+export interface InfoData {
+  story: {
+    name: string;
+    content: {
+      body: {
+        _uid: string;
+        headline: string;
+        component: string;
+        _editable: string;
+      }[];
+    };
+  };
+}
+
+export function Info({ data }: { readonly data: InfoData }): JSX.Element {
   const [isShown, setIsShown] = useState(false);
-  
   return (
     <div className="w-screen h-screen flex items-start justify-start p-4">
       <div //NOSONAR
@@ -17,16 +31,14 @@ export function Info() {
       {isShown && (
         <div
           className={
-            "absolute mt-12 ml-8 w-fit left-20 bg-white text-slate-900 text-left rounded-xl py-8 px-8"
+            "absolute mt-12 ml-8 w-fit max-w-[30%] left-20 bg-white text-slate-900 text-left rounded-xl py-8 px-8"
           }
         >
-          <h1 className="text-2xl font-bold">TODO: fetch this from a CMS. </h1>
+          <h2 >
+            {data.story.content.body[0].headline}
+          </h2>
         </div>
       )}
     </div>
   );
-
 }
-
-
-

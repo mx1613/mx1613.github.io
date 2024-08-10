@@ -1,15 +1,16 @@
+"use client";
 import React from "react";
 
 import { OrbitControls, OrthographicCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
-import Walle from "./walle";
+import Walle from "./Walle";
 
-interface ThreeDSceneProps {
+interface SceneProps {
   className?: string;
 }
 
-const ThreeDScene: React.FC<ThreeDSceneProps> = ({ className }) => {
+export const Scene: React.FC<SceneProps> = ({ className }) => {
   return (
     <div className={className}>
       <Canvas>
@@ -23,5 +24,3 @@ const ThreeDScene: React.FC<ThreeDSceneProps> = ({ className }) => {
     </div>
   );
 };
-
-export default ThreeDScene;

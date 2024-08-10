@@ -5,8 +5,7 @@ import { Header } from "../components/Header";
 import { Info } from "../components/Info";
 
 export default async function Home(): Promise<JSX.Element> {
-  const { data } = await fetchData();
-
+  const data = await fetchData();
   return (
     <main className="relative h-screen w-screen bg-slate-900 flex items - center justify - center">
       <Scene className="absolute inset-0" />
